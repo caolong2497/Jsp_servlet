@@ -13,10 +13,39 @@
     	<servlet-name>detail</servlet-name>
     	<jsp-file>/jsp/sinhviendetail.jsp</jsp-file>
 	</servlet>
+	
 <!--mapping-->
 	<servlet-mapping>
 	    <servlet-name>detail</servlet-name>
 	    <url-pattern>/detailsv</url-pattern>   
+	</servlet-mapping>
+	<servlet>
+    	<servlet-name>createsinhvien</servlet-name>
+    	<jsp-file>/jsp/createSinhvien.jsp</jsp-file>
+	</servlet>
+<!--mapping-->
+	<servlet-mapping>
+	    <servlet-name>createsinhvien</servlet-name>
+	    <url-pattern>/createsinhvien</url-pattern>   
+	</servlet-mapping>
+		<servlet>
+    	<servlet-name>infor</servlet-name>
+    	<jsp-file>/jsp/information.jsp</jsp-file>
+	</servlet>
+<!--mapping-->
+	<servlet-mapping>
+	    <servlet-name>infor</servlet-name>
+	    <url-pattern>/information</url-pattern>   
+	</servlet-mapping>
+		<servlet>
+    	<servlet-name>update</servlet-name>
+    	<jsp-file>/jsp/updateSinhvien.jsp</jsp-file>
+	</servlet>
+	
+<!--mapping-->
+	<servlet-mapping>
+	    <servlet-name>update</servlet-name>
+	    <url-pattern>/updatesv</url-pattern>   
 	</servlet-mapping>
   <display-name>Session5</display-name>
   <welcome-file-list>

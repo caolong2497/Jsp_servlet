@@ -50,6 +50,7 @@ public class studentDao {
 			 ps.setString(1, studentid);
 			rs=ps.executeQuery();
 			rs.next();
+			
 				student=new Student();
 				student.setRollNumber(rs.getString(1));
 				student.setFullName(rs.getString(2));
@@ -66,5 +67,51 @@ public class studentDao {
 			bd.closeConnect(con, rs, ps);
 		}
 		return student;
+	}
+	public boolean createStudent(Student sv){
+		String sql="insert into TblStudent values(?,?,?,?,?,?)";
+		basedao bd=new basedao();
+		PreparedStatement ps=null;
+		Connection con=bd.connect();
+		try {
+			 ps=con.prepareStatement(sql);
+			 ps.setString(1, sv.getRollNumber());
+			 ps.setString(2, sv.getFullName());
+			 ps.setBoolean(3, sv.isGender());
+			 ps.setDate(4, new java.sql.Date(sv.getBirthday().getTime()));
+			 ps.setString(5, sv.getAddress());
+			 ps.setString(6, sv.getClassName());
+			ps.execute();
+			
+
+		} catch (SQLException e) {
+			System.out.println("create that bai");
+			return false;
+			// TODO Auto-generated catch block
+			
+		}finally{
+			
+			bd.closeConnect(con, null, ps);
+		}
+		return true;
+	}
+	public boolean updateStudent(Student sv){
+		String sql="update TblStudent set FullName=? , Birthday=?,Address=? where RollNumber=?";
+		basedao bd= new basedao();
+		PreparedStatement ps =null;
+		Connection con=bd.connect();
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, sv.getFullName());
+			ps.setDate(2,  new java.sql.Date(sv.getBirthday().getTime()));
+			ps.setString(3, sv.getAddress());
+			ps.setString(4, sv.getRollNumber());
+		} catch (SQLException e) {
+			System.out.println("update that bai");
+			return false;
+		}finally{
+			bd.closeConnect(con, null, ps);
+		}
+		return true;
 	}
 }

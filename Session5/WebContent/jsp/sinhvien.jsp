@@ -18,6 +18,7 @@
 <th>Birthday</th>
 <th>Address</th>
 <th>ClassName</th>
+<th>Action</th>
 </tr>
 <c:forEach items="${listStudent}"  var="sv" >
 <tr>
@@ -27,9 +28,16 @@
 <td>${sv.birthday}</td>
 <td>${sv.address }</td>
 <td>${sv.className }</td>
+<td>
+<a href="studentController?type=update&id=${sv.rollNumber}">Update</a>
+</td>
 </tr>
 </c:forEach>
-
+<tr>
+<td>
+<a href="createsinhvien">Create sinhvien</a>
+</td>
+</tr>
 </table>
 </center>
 

@@ -14,6 +14,7 @@ public class basedao {
 		String userName = "sa";
 	    String password = "Long123$";
 	    try {
+	    	
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			 con = DriverManager.getConnection(dbURL, userName, password);
 			 System.out.println("connect successfully!");
@@ -26,9 +27,15 @@ public class basedao {
 	}
 	public void closeConnect(Connection con,ResultSet rs,PreparedStatement ps){
 		try {
-			con.close();
-			rs.close();
-			ps.close();
+			if(con!=null){
+				con.close();
+			}
+			if(rs!=null){
+				rs.close();
+			}
+			if(ps!=null){
+				ps.close();	
+			}
 		} catch (SQLException e) {
 			System.out.println("đóng kết nối thất bại");
 		}
